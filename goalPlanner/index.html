@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goal Planner</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet/less" type="text/css" href="style.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</head>
+<body>
+    <div id = "goals">
+        <ul>
+           <li><a href="#" onclick="toggleVisibility('goalDescription1')"> READING A BOOK</a></li> 
+           <li><a href="#" onclick="toggleVisibility('goalDescription2')">  RUNNING</a></li> 
+           <li><a href="#" onclick="toggleVisibility('goalDescription3')">  ONLINE COURSE</a> </li> 
+        </ul>
+    </div>
+
+    <div id = "goalDescription1" class = "list">
+        <p>This is a reading a book goal description</p>
+         <div id = "readingTime">
+            <ul>
+                <li><a href="#" onclick="toggleVisibility2('timeAmount1')">10 MINUTES PER DAY</a></li> 
+                <li><a href="#" onclick="toggleVisibility2('timeAmount2')">30 MINUTES PER DAY</a></li> 
+                <li><a href="#" onclick="toggleVisibility2('timeAmount3')">1 HOUR PER DAY</a></li> 
+            </ul>
+        </div>
+    </div>
+    <div id = "goalDescription2" class = "list">
+        <p>This is a workout goal description</p>
+         <div id = "workoutTime">
+            <ul>
+                <li><a href="#" onclick="toggleVisibility2('timeAmount1')">10 MINUTES PER DAY</a></li> 
+                <li><a href="#" onclick="toggleVisibility2('timeAmount2')">30 MINUTES PER DAY</a></li> 
+                <li><a href="#" onclick="toggleVisibility2('timeAmount3')">1 HOUR PER DAY</a></li> 
+            </ul>
+        </div>
+    </div>
+    <div id = "goalDescription3" class = "list">
+        <p>This is an online course goal description</p>
+        <div id = "courseTime">
+            <ul>
+                <li><a href="#"  onclick="toggleVisibility2('timeAmount1')">10 MINUTES PER DAY</a></li> 
+                <li><a href="#"  onclick="toggleVisibility2('timeAmount2')">30 MINUTES PER DAY</a></li> 
+                <li><a href="#"  onclick="toggleVisibility2('timeAmount3')">1 HOUR PER DAY</a></li> 
+            </ul>
+        </div>
+    </div>
+
+    <div id = "estTimeAmount"></div>
+
+    <div id = "timeAmount1" class = "list2">
+        <p>This is a time from 10 minutes per day</p>
+    </div>
+     <div id = "timeAmount2" class = "list2">
+        <p>This is a time from 30 minutes per day</p>
+    </div>
+     <div id = "timeAmount3" class = "list2">
+        <p>This is a time from 1 hour per day</p>
+    </div>
+
+</body>
+
+<script src="script.js"> </script>
+</html>

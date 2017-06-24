@@ -1,0 +1,102 @@
+<!doctype HTML>
+<html>
+<head>
+<style>
+    #box{
+        border:  solid, black, 3px;
+        width: 120px;
+        height: 30px;
+    }    
+</style>
+<title>Calculator</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="../../css/sharetastic.css" type="text/css">
+<link rel="stylesheet" href="../../animsition-master/dist/css/animsition.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/multilevelmenu.css" />
+<link rel="stylesheet" type="text/css" href="../../css/component.css" />
+<link rel="stylesheet" type="text/css" href="../../css/animations.css" />
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/keyframes.css">
+    <!--<link rel="stylesheet" href="../../css/layout.css">-->
+    <link rel="stylesheet" href="../../css/pageTransitions.css">
+
+<link rel="stylesheet" href="../../css/style.css" media="screen" type="text/css">
+<link rel="stylesheet" href="style.css" media="screen" type="text/css">
+<script src="../../js/modernizr.custom.js"></script>
+
+
+
+</head>
+<body>
+    <div class="projects-link">
+        <a href="/Portfolio/projects.html"><--PROJECTS</a>
+    </div>
+    
+<!--<div id="projects-container" class="pt-page-rotateUnfoldTop">-->
+<!--<div id="main" class="m-scene">-->
+<!--<div id="projects-container" class="m-aside scene_element scene_element--fadeinleft">-->
+<div id="projects-container">
+    <div class="page-header">
+        <h1>Simple Calculator:</h1>
+    </div>      
+    <form id = "calc">
+        <div class="container col-lg-3 col-md-3 col-sm-12">
+            <div class="form-group">
+                <input type="text" id="usr" disabled class="form-control"> 
+            </div>    
+        </div> 
+        <div class="container col-lg-12 col-md-12">   
+            <div class="btn-group">       
+                <button type= "button" onclick="edit('1')" class="btn btn-default btn-width">1</button>     
+                <button type= "button" onclick="edit('2')" class="btn btn-default btn-width">2</button>     
+                <button type= "button" onclick="edit('3')" class="btn btn-default btn-width">3</button>     
+                <button type= "button" onclick="edit('+')" class="btn btn-default btn-width">+</button><br>     
+                <button type= "button" onclick="edit(4)" class="btn btn-default btn-width">4</button>     
+                <button type= "button" onclick="edit(5)" class="btn btn-default btn-width">5</button>     
+                <button type= "button" onclick="edit(6)" class="btn btn-default btn-width">6</button>
+                <button type= "button" onclick="edit('-')" class="btn btn-default btn-width">-</button><br>         
+                <button type= "button" onclick="edit(7)" class="btn btn-default btn-width">7</button>     
+                <button type= "button" onclick="edit(8)" class="btn btn-default btn-width">8</button>     
+                <button type= "button" onclick="edit(9)" class="btn btn-default btn-width">9</button>
+                <button type= "button" onclick="edit('*')" class="btn btn-default btn-width">*</button><br> 
+                <input  type= "button" onclick="ce()"  class="btn btn-default btn-width" value="c">   
+                <button type= "button" onclick="edit(0)" class="btn btn-default btn-width">0</button> 
+                <button type= "button" onclick="answer();" class="btn btn-default btn-width">=</button>
+                <button type= "button" onclick="edit('/')" class="btn btn-default btn-width">/</button><br>         
+            </div>
+        </div>
+    </form>
+</div>
+<!--</div>-->
+       
+      
+<!--<div id="answer"></div>-->
+
+       
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../js/sharetastic.js"></script>
+<!--<script src="../../js/nanobar.min.js"></script>-->
+<script src="../../jQuery/jquery.vide.js"></script>
+<script src="../../animsition-master/dist/js/animsition.min.js"></script> 
+<script src="../../jQuery/jquery.dlmenu.js"></script>
+<script src="../../js/pagetransitions.js"></script>
+<script src="../../jQuery/jquery.smoothState.js"></script>
+<!--<script src="../../js/script.js"></script>-->
+<script src="script.js"></script> 
+
+
+
+</body>
+<footer>
+                        
+</footer>
+</html>
+
+
+
+

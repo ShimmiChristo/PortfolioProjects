@@ -1,0 +1,177 @@
+
+html{
+    
+}
+
+#goals{
+    margin: 20px auto;
+    width: 700px;
+
+}
+#goals ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    height: 80px;
+}
+#goals li{   
+    background-color: gray;
+    float: left;
+    margin: 10px;
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    border-radius: 5px;
+
+}
+#goals a {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+#goalDescription1{
+    display: none;
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#goalDescription1 p{
+    margin: 10px;
+    padding: 0;
+}
+#readingTime{
+    margin: 20px auto;
+}
+#readingTime ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    height: 80px;
+}
+#readingTime li{   
+    background-color: gray;
+    float: left;
+    margin: 10px;
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    border-radius: 5px;
+}
+#readingTime a {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+#goalDescription2{
+    display: none;
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#goalDescription2 p{
+    margin: 10px;
+    padding: 0;
+}
+#workoutTime{
+    margin: 20px auto;
+}
+#workoutTime ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    height: 80px;
+}
+#workoutTime li{   
+    background-color: gray;
+    float: left;
+    margin: 10px;
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    border-radius: 5px;
+
+}
+#workoutTime a {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+
+#goalDescription3{
+    display: none;
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#goalDescription3 p{
+    margin: 10px;
+    padding: 0;
+}
+#courseTime{
+    margin: 20px auto;
+}
+#courseTime ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    height: 80px;
+}
+#courseTime li{   
+    background-color: gray;
+    float: left;
+    margin: 10px;
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    border-radius: 5px;
+
+}
+#courseTime a {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+#timeAmount1 {
+    display: none;  
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#timeAmount2 {
+    display: none;  
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+#timeAmount3 {
+    display: none;  
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}

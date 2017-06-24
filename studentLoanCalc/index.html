@@ -1,0 +1,103 @@
+<!doctype HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Student Loan Calculator </title>
+<!--    Student Loan Calculator-->
+    
+    <link rel="stylesheet" href="css/sharetastic.css" type="text/css" />
+    <link rel="stylesheet" href="animsition-master/dist/css/animsition.min.css" />
+    <link rel="stylesheet" href="css/multilevelmenu.css" type="text/css" />
+    <link rel="stylesheet" href="css/component.css" type="text/css" />
+    <link rel="stylesheet" href="css/animations.css" type="text/css" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/keyframes.css">
+    <link rel="stylesheet" href="css/pageTransitions.css">
+
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<script src="js/modernizr.custom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function()  {
+    $(".front-image").click(function() {
+        $(".project-cover").css(
+            'left','0px');
+        // $(".front-image").fadeOut();
+    });
+});
+
+</script>
+
+
+
+
+</head>   
+<body>
+   <div class="projects-link">
+        <a href="/Portfolio/projects.html"><--PROJECTS</a>
+    </div>
+
+<!--
+<div class="page">
+
+<div class="loan">
+    <h3>Loan Amount:</h3> 
+    <input id= "loanAmount" type="text" name="loanAmount" placeholder="$">
+   <h3>Loan Term:</h3> 
+   <input id= "loanTerm" type="text" name="loanTerm" placeholder="Months"> 
+   <h3>Interest Rate:</h3>
+   <input id= "interestRate" type="text" name="interestRate" placeholder="%"> <br><br>
+
+  <button onclick="calcLoan()">Calculate Payments</button> <br><br>
+   <input type="reset" value="Reset">    
+
+</div>
+
+<div id="answer"></div>   
+</div>
+-->
+
+<!--<div class="project-cover"></div>-->
+<div class="container col-lg-8 col-md-8 col-sm-8 col-xs-10">
+    <div class="page-header">
+        <h1>Student Loan Calculator</h1>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">Loan Amount</span>
+        <input type="text" class="form-control" name="loanAmount" id="loanAmount" placeholder="$">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">Loan Term</span>
+        <input type="text" class="form-control" name="loanTerm" id="loanTerm" placeholder="Months">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">Interest Rate</span>
+        <input type="text" class="form-control" name="interestRate" id="interestRate" placeholder="%">
+    </div>
+    <br>
+    <div class="input-group-btn">
+        <button onclick="calcLoan()" type="submit" class="btn btn-default">Calculate</button>
+    </div>
+    <br><br>
+    <ul id="answer"></ul>  
+</div>
+
+
+
+
+<script src="script.js"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+<footer>
+    
+</footer>
+</html>
+
