@@ -1,0 +1,48 @@
+
+extends layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header
+				.navbar-brand #{title}
+				
+			ul.nav.navbar-nav.navbar-right
+				li 
+					a(href="/home") Home
+				li 
+					a(href="/qb") QB
+				li 
+					a(href="/rb") RB
+				li 
+					a(href="/wr") WR
+				li 
+					a(href="/te") TE
+				li
+					a(href="/settings") Settings
+				li
+					.navbar-btn#btn-logout.btn.btn-default
+						| Sign Out
+						
+	div.container(style='margin:60px')
+		table.table.table-bordered.table-striped
+			thead
+				tr
+					th(style='width:40px') #
+					th(style='width:180px') Rank
+					th(style='width:200px') TE
+					th(style='width:180px') First Name
+					th(style='width:180px') Last Name
+					th(style='width:180px') Team
+					th(style='width:180px') User 
+			tbody
+			//- - for (var i = 0; i < 150; i++)
+			- each allPlayList, i in te		
+				tr
+					td= i+1
+					td= allPlayList.rank
+					td= allPlayList.position 
+					td= allPlayList.first_name
+					td= allPlayList.last_name
+					td= allPlayList.team
+					td= allPlayList.user_id

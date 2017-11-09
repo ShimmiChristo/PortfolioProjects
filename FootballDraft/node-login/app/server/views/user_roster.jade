@@ -1,0 +1,76 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+extends layout
+
+block content
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header
+				.navbar-brand #{title} #{udata.user}
+				
+			ul.nav.navbar-nav.navbar-right
+				li 
+					a(href="/home") Home
+				li 
+					a(href="/roster") Roster
+				li 
+					a(href="/qb") QB
+				li 
+					a(href="/rb") RB
+				li 
+					a(href="/wr") WR
+				li 
+					a(href="/te") TE
+				li
+					a(href="/settings") Settings
+				li
+					.navbar-btn#btn-logout.btn.btn-default
+						| Sign Out
+						
+	div.container(style='margin:60px') 
+		//- - each user, i in salary
+		//- 	user
+
+	div.container(style='margin:60px')
+		table.table.table-bordered.table-striped
+			thead
+				tr
+					th(style='width:40px') #
+					th(style='width:180px') Rank
+					th(style='width:200px') Position
+					th(style='width:180px') First Name
+					th(style='width:180px') Last Name
+					th(style='width:180px') Team
+					th(style='width:180px') User 
+					th(style='width:180px') Contract
+					th(style='width:180px') 2017
+					th(style='width:180px') 2018
+					th(style='width:180px') 2019
+					th(style='width:180px') 2020
+					th(style='width:180px') OG Contract
+			tbody
+			//- for allPlay in allPla			
+			//- - each allPlay, i in allPla		
+			//- for allPlay in allPla
+			//- - for (var i = 0; i < 10; i++)
+
+			- each allPlay, i in allPla		
+				tr
+					td= i + 1
+					td= allPlay.rank
+					td= allPlay.position
+					td= allPlay.first_name
+					td= allPlay.last_name
+					td= allPlay.team
+					td= allPlay.user_id
+					td= allPlay.contract
+					td= allPlay.year_2017
+					td= allPlay.year_2018
+					td= allPlay.year_2019
+					td= allPlay.year_2020
+					td= allPlay.og_contract
+					

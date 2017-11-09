@@ -1,0 +1,246 @@
+
+// preset form values if we receive a userdata object //
+- user = (typeof(udata) != 'undefined') ? udata : { }
+//- - playerSearch = (typeof(allPla) != 'undefined') ? allPla : { }
+
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+extends layout
+
+block content
+
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header
+				.navbar-brand  Auction 
+				//- .navbar-brand  #{user.user}
+				
+			ul.nav.navbar-nav.navbar-right
+				li 
+					a(href="/home") Auction
+				li 
+					a(href="/roster") Roster
+				li 
+					a(href="/qb") QB
+				li 
+					a(href="/rb") RB
+				li 
+					a(href="/wr") WR
+				li 
+					a(href="/te") TE
+				li
+					a(href="/settings") Settings
+				li
+					.navbar-btn#btn-logout.btn.btn-default
+						| Sign Out
+
+		//- - for (allPlay in allPla)
+
+	//- include account
+	include auction
+	//- include user_roster
+	include modals/alert
+	include modals/confirm
+				
+	//- - for (var i = 0; i < allPla.length; i++)
+		//- allPla[i].qb
+		
+
+
+block scripts
+
+	script(src='/vendor/jquery-2.2.3.min.js')
+	script(src='/vendor/jquery.form.min.js')
+	script(src='/vendor/bootstrap.min.js')
+	script(src='/js/views/home.js')
+	//- script(src='/js/views/settings.js')
+	script(src='/js/controllers/homeController.js')
+	//- script(src='/js/form-validators/accountValidator.js')
+	script(src='/js/form-validators/playerValidator.js')
+	script(src='/socket.io/socket.io.js')
+	script.
+		//- var endpoint = JSON.parse( !{JSON.stringify(qbList)} );		
+		//- var endpoint = !{JSON.stringify(qbList)};
+		//- console.log(endpoint);
+
+		//- console.log(playersArray);
+		//- fetch(endpoint)
+			//- .then(blob => console.log(blob))
+			//- .then(blob => blob)
+			//- .then(data => console.log(data))
+			//- .then(data => playersArray.push(...data))
+
+		//- let players = allPlayersList;
+
+		//- - each allPlay, i in allPla	
+		//- 	playersArray.push(allPlay[i])
+
+			//- var users=JSON.parse(("#{allPlaString}").replace(/&quot;/g,'"'));
+			//- console.log(users);
+			
+		var socket = io.connect()
+		let playersArray = []
+		var qbList = !{qbList}
+		var rbList = !{rbList}
+		var wrList = !{wrList}
+		var teList = !{teList}
+		playersArray.push(...qbList)
+		playersArray.push(...rbList)
+		playersArray.push(...wrList)
+		playersArray.push(...teList)
+		
+		function findMatches( wordToMatch, playersArray) {
+			return playersArray.filter(place => {
+				const regex = new RegExp(wordToMatch, 'gi');
+				return place.first_name.match(regex) || place.last_name.match(regex)
+			});
+		} 
+
+		function displayMatches() {
+			const matchArray = findMatches(this.value, playersArray );
+			const html = matchArray.map(place => {
+				return `
+				<li data-value="${place.first_name} ${place.last_name}" data-user_first="${place.first_name}" 
+					data-user_last="${place.last_name}" data-user="${place.user_id}">
+					${place.first_name} ${place.last_name}
+				</li>
+				`;
+			}).join('');
+			//- let li_length = $('html li').length;
+			if( matchArray.length < 5) {
+				suggestions.innerHTML = html;
+			} else {
+			//- console.log(matchArray);
+		}
+		}
+		//- document.getElementById('user-tf').value = !{user.user_id};
+
+		function inputPlayer(e) {
+			var inputItem = document.querySelector('li');
+			document.getElementById('player-tf').value = e.target.getAttribute('data-value');
+			document.getElementById('player_first-tf').value = e.target.getAttribute('data-user_first');
+			document.getElementById('player_last-tf').value = e.target.getAttribute('data-user_last');
+			//- var message = (document.getElementById("player-tf").value);				
+			//- console.log(this.innerText);
+			//- console.log(this.textContent);
+			//- console.log(e.target.text);
+			console.log(e.target.getAttribute('data-value'));
+			//- console.log(this.getAttribute('value'));
+			socket.emit('sendPlayer', e.target.getAttribute('data-value')); 			
+		}
+
+		const searchInput = document.querySelector('.searchPlayer');
+		const suggestions = document.querySelector('.suggestions');
+		const list = document.querySelector('.suggestions');
+		searchInput.addEventListener('change', displayMatches);
+		searchInput.addEventListener('keyup', displayMatches);
+		list.addEventListener('click', inputPlayer);
+
+
+		$(document).ready(function(){
+			socket.on('updatePrice', function(data) {
+				document.getElementById('bids').innerHTML = data;
+			});
+		});
+		$(document).ready(function(){
+			socket.on('updateUser', function(dataUser) {
+				document.getElementById('userbid').innerHTML = dataUser;
+			});
+		});
+		$(document).ready(function(){
+			socket.on('updateTime', function(dataTime) {
+				document.getElementById('timer').innerHTML = dataTime;
+			});
+		});
+		
+		var searchPlayer = document.getElementById('player-tf');
+		var selectPlayer = document.querySelector('li');
+		searchPlayer.addEventListener('keyup', displayPlayer);
+		searchPlayer.addEventListener('change', displayPlayer);
+		selectPlayer.addEventListener('click', displayPlayer);
+		$(document).ready(function(){
+			socket.on('updatePlayer', function(dataPlayer) {
+				document.getElementById('player-tf').value = dataPlayer;
+			});
+		});
+
+		//- function addUserId(){
+		//- 	var userId = document.getElementById("user-tf").value;	
+		//- 	//- var lastName = document.getElementById("player_first-tf").value;	
+		//- 	var lastName = document.getElementById("player_last-tf").value;	
+		//- 	console.log(userId);
+		//- 	console.log(lastName);
+		//- }
+
+		function displayPlayer() {
+			//- var message = $('#input').val();
+			var message = (document.getElementById("player-tf").value);	
+			//- var bid = parseInt(document.getElementById("bids").innerHTML);					
+			//- if (message < bid) {
+				//- console.log("ERROR");
+			//- } else {
+			socket.emit('sendPlayer',message); 
+			//- timeReset();		
+			//- }
+		}
+		function submitPrice() {
+			//- var message = $('#input').val();
+			var message = parseInt(document.getElementById("input").value);	
+			var bid = parseInt(document.getElementById("bids").innerHTML);					
+			if (message < bid) {
+				console.log("ERROR");
+			} else {
+			socket.emit('sendmsg',message); 
+			timeReset();		
+			}
+		}
+
+		function addonedollar() {
+			var bid = parseInt(document.getElementById("bids").innerHTML);
+			var message = parseInt(document.getElementById("input").value);
+			bid++;
+			//- message++;
+			document.getElementById("input").value = message;
+			timeReset();						
+			socket.emit('sendmsg',bid); 
+			socket.emit('sendUser','#{user.user}'); 
+			//- console.log('#{user.user}');
+		}
+		function addfivedollars() {
+			var bid = parseInt(document.getElementById("bids").innerHTML);
+			var message = parseInt(document.getElementById("input").value);
+			bid += 5;
+			//- message += 5;
+			document.getElementById("input").value = message;
+			timeReset();						
+			socket.emit('sendmsg',bid); 
+		}
+		function addtendollars() {
+			var bid = parseInt(document.getElementById("bids").innerHTML);
+			var message = parseInt(document.getElementById("input").value);
+			bid += 10;
+			message += 10;
+			document.getElementById("input").value = message;
+			timeReset();			
+			socket.emit('sendmsg',bid); 
+		}
+		
+		function countDown() {
+			var timeCountDown = document.getElementById('timer').innerHTML;
+			setTimeout(countDown, 1000);	
+			if(timeCountDown > 1) {
+				timeCountDown--;
+			} else {
+				return document.getElementById('timer').innerHTML = 'Expired';				
+			}
+
+			socket.emit('sendTime',timeCountDown); 						
+		}
+		function timeReset() {
+			var newTime = parseInt(document.getElementById("timer").innerHTML); 					
+			if(newTime < 10 && newTime > 0) {
+				newTime = 10;
+			} 
+			socket.emit('sendTime',newTime); 			
+		}

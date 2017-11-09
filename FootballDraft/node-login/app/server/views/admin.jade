@@ -1,0 +1,67 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+
+#account-form-container.center-vertical
+	form(method="post")#player-form.form-horizontal.well
+		h2 
+		h6#bids 
+		h6#timer
+		hr
+		h6#userbid
+		.form-group
+			label.control-label.col-sm-3  
+			.col-sm-9
+				input.form-control#player-tf(type='text', name='name', class='searchPlayer', placeholder='Type a Player')
+				input.form-control#player_first-tf(type='hidden', name='first_name', class='searchPlayer')
+				input.form-control#player_last-tf(type='hidden', name='last_name', class='searchPlayer')
+				input.form-control#user-tf(type='hidden', name='user', value=user.user)
+				ul.suggestions
+
+			button(type='submit')#account-form-btn4.btn.btn-primary
+			//- button(type='button' onclick='addUserId()')#account-form-btn4.btn.btn-primary
+				
+		hr
+
+		.form-group
+			label.control-label.col-sm-2 Price
+			.col-sm-4
+				input.form-control#input(type='number', name='bid', value= '0')
+			.col-sm-2.no-padding
+				button#addone(type='button', name='addone', onclick='addonedollar()').btn.btn-default
+			.col-sm-2.no-padding
+				button#addfive(type='button', name='addfive', onclick='addfivedollars()').btn.btn-default
+			.col-sm-2.no-padding
+				button#addten(type='button', name='addaddten', onclick='addtendollars()').btn.btn-default
+			.col-sm-2.no-padding
+			//- p#timer 21
+
+			//- input#input(type ="text")
+			//- button#submit(type="button" onclick='submitMessage()') Submit Bid            
+
+
+		hr
+		.form-buttons
+			//- button(type='button')#account-form-btn1.btn.btn-default
+			button(type='button' onclick='countDown()')#account-form-btn3.btn.btn-default
+			button(type='button' onclick='submitPrice()')#account-form-btn2.btn.btn-primary
+		.clearfix
+
+// display form errors in a custom modal window //
+
+include modals/form-errors
+			
+block scripts
+
+	script(src='/vendor/jquery-2.2.3.min.js')
+	script(src='/vendor/jquery.form.min.js')
+	script(src='/vendor/bootstrap.min.js')
+	script(src='/js/views/home.js')
+	//- script(src='/js/views/settings.js')
+	script(src='/js/controllers/homeController.js')
+	//- script(src='/js/form-validators/accountValidator.js')
+	script(src='/js/form-validators/playerValidator.js')
+
