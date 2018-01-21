@@ -1,0 +1,77 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/usa-map.html",
+            "cwd": "${workspaceRoot}"
+        },
+         {
+            "name": "Launch localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost/Portfolio/projects/usa-map/usa-map.html",
+            "webRoot": "${workspaceRoot}/"
+        },
+        // {
+        //     "type": "chrome",
+        //     "request": "launch",
+        //     "name": "Launch Chrome against localhost",
+        //     "url": "http://127.0.0.1:8081",
+        //     "webRoot": "${workspaceFolder}"
+        // },
+        {
+            "compilerOptions": {
+                "target": "ES6"
+            },
+            "exclude": [
+                "node_modules",
+                "**/node_modules/*"
+            ]
+        }
+    ]
+}
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Launch localhost",
+//             "type": "chrome",
+//             "request": "launch",
+//             "url": "http://localhost/usa-map.html",
+//             "webRoot": "${workspaceRoot}/"
+//         },
+//         {
+//             "name": "Launch index.html (disable sourcemaps)",
+//             "type": "chrome",
+//             "request": "launch",
+//             "sourceMaps": false,
+//             "file": "${workspaceRoot}/usa-map.html"
+//         },
+//     ]
+// }
+
+
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "node",
+//             "request": "launch",
+//             "name": "Launch Program",
+//             "program": "${workspaceRoot}/project-1.js",
+//             "cwd": "${workspaceRoot}"
+//         },
+//         {
+//             "compilerOptions": {
+//                 "target": "ES6"
+//             },
+//             "exclude": [
+//                 "node_modules",
+//                 "**/node_modules/*"
+//             ]
+//         }
+//     ]
+// }
