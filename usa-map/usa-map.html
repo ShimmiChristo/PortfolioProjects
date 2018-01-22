@@ -562,7 +562,6 @@ function updateDoc(clicked_state) {
       for (var key in stateObjects) {
         if(stateObjects.hasOwnProperty(key)){
           if (key == clicked_state){
-            console.log(stateObjects[key].name);
             state_name.innerHTML = stateObjects[key].name;
             full_state_name.innerHTML = stateObjects[key].capital;
           }
@@ -575,7 +574,7 @@ function clickState() {
 }
 function hoverStateEnter() {
   state_name.innerHTML = "?";
-  full_state_name = "click to reveal";
+  full_state_name.innerHTML = "click to reveal";
 }
 function hoverStateLeave() {
   state_name.innerHTML = "";
