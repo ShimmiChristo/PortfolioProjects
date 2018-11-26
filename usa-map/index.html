@@ -8,7 +8,7 @@
 <!--<script src="usa-map.js"></script>-->
 <script type="text/javascript" >
     // $.getJSON("usa-state-capitals.json", function(state) {
-        // console.log(json); // this will show the info it in firebug console
+    //     // console.log(json); // this will show the info it in firebug console
     // });
 </script>
 
@@ -570,6 +570,7 @@ function updateDoc(clicked_state) {
   }
 }
 function clickState() {
+  console.log('clickstate clicked');
   updateDoc(this.id);
 }
 function hoverStateEnter() {
