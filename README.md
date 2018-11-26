@@ -1,5 +1,6 @@
 # PortfolioProjects
 These projects can be found on my personal portfolio at chrisshimmin.com.
+This repository also includes my Fantasy Football app. 
 
 
 ### What is this?
