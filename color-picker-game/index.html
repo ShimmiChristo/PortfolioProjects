@@ -10,6 +10,7 @@ h1 {
 }
 .current-color {
     font-size: 3em;
+
 }
 .tile {
     width: 200px;
@@ -28,10 +29,10 @@ h1 {
     </head>
     <body>
         <h1>Color Picker Game</h1>
-        <div id="current-color"> #FF6633 </div>
+        <div id="current-color">  </div>
 
         <div id="color-tiles">
-                <div class='tile' onclick="checkColor(this)"></div>
+                <div class='tile'></div>
                 <div class='tile'></div>
                 <div class='tile'></div>
                 <div class='tile'></div>
@@ -52,28 +53,68 @@ var colorArray = [  '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
                     '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
                     '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
                     '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF' ];
+// const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+    // const hex = x.toString(16)
+    // return hex.length === 1 ? '0' + hex : hex
+// }).join('')
+
 // var randomColor = colorArray[Math.floor(Math.random()*colorArray.length)]; // random number generator
- 
+var randArray = [];
 var i = 0;
 var allTiles = document.querySelectorAll('.tile');
 var currentColor = document.getElementById("current-color");
 // console.log(currentColor);
 
 allTiles.forEach((x)=> {
-    // console.log(allTiles[i]);
     var randomColor = colorArray[Math.floor(Math.random()*colorArray.length)]; // random number generator
-
+    randArray.push(randomColor);
     x.style.background = randomColor;
-    console.log(x);
 });
+    // console.log(randArray);
+    var currentColorBackground = randArray[Math.floor(Math.random()*randArray.length)];
+    // console.log(currentColorBackground);
+    currentColor.textContent = currentColorBackground;
 
+document.addEventListener('click', function() {clickColor(event)});
 
-function checkColor(checkClick) {
+function clickColor(e) {
     // var getText = document.querySelector().innerHTML; 
-    console.log(checkClick);
+    // console.log(e.target.style.background);
+    var clicked = e.target.style.background;
+    var rgb = clicked.substring(4, clicked.length-1)
+         .replace(/ /g, '')
+         .split(',');
+    var first = Number(rgb[0]);
+    var second = Number(rgb[1]);
+    var third = Number(rgb[2]);
+    var hexCode =  "#" + first + second + third;
+    // console.log(hexCode);
+    // rgbToHex(first, second, third);
     // if (checkClick.style == ) {
 
     // }
+    console.log(e.target);
+}
+function checkColor(e) {
+    // console.log(e);
+    // console.log(currentColor.innerText);
+    if(e != currentColor.innerText) {
+        // e.style.background = '#ffffff';
+       console.log(e); 
+    }
+}
+
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+    // console.log(hex);
+}
+function rgbToHex(r,g,b) {
+    // console.log( "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]));
+    var callback = "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    // console.log(callback.target);
+    // return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
 }
 
 </script>
