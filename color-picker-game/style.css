@@ -1,0 +1,166 @@
+a[href], input[type=submit], input[type=image], label[for], select, button, .pointer {
+  cursor: pointer;
+}
+
+body {
+  margin: 0px auto 50px;
+  text-align: center;
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+  padding: 50px 0 50px;
+  background: #fff;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.current-color {
+  font-size: 3em;
+}
+
+.tile {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px;
+  display: inline-flex;
+  background-color: gray;
+  -webkit-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+
+#current-color {
+  opacity: 0;
+  height: 50px;
+}
+
+#current-color-title {
+  font-size: 3em;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.buttons {
+  width: 100%;
+  display: inline-block;
+  height: 100px;
+  position: relative;
+}
+
+button {
+  background-color: #fff;
+  /* Green */
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  border: 1px solid #ccc;
+}
+button:hover {
+  -webkit-transition: box-shadow 0.3s;
+  -ms-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+}
+
+.toggle-label {
+  width: 200px;
+  height: 50px;
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+}
+.toggle-label:hover {
+  -webkit-transition: box-shadow 0.3s;
+  -ms-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+}
+
+.toggle-label .label {
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.toggle-label .label.on {
+  left: 0px;
+}
+
+.toggle-label .label.off {
+  right: 0px;
+}
+
+.toggle {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  border: 1px solid #000;
+  position: absolute;
+  left: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.toggle-label input[type=checkbox]:checked + .back .toggle {
+  margin-left: 50%;
+  position: absolute;
+}
+
+.toggle-label input[type=checkbox] + .back .toggle {
+  margin-left: 0px;
+  position: absolute;
+  content: " ";
+  background: #fff;
+  width: 50%;
+  height: 100%;
+  transition: margin 0.2s linear;
+  border: 1px solid #808080;
+  border-radius: 0;
+}
+
+.toggle-label input[type=checkbox] + .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ed1c24;
+  left: 0;
+  transition: background 0.3s linear;
+}
+
+.toggle-label input[type=checkbox]:checked + .back {
+  background: green;
+}
+
+.toggle-label input[type=checkbox] + .back .label.off {
+  color: #eee;
+}
+
+.toggle-label input[type=checkbox]:checked + .back .label.off {
+  color: #ccc;
+}
+
+.toggle-label input[type=checkbox]:checked + .back .label.on {
+  color: #eee;
+}
+
+.toggle-label input[type=checkbox] + .back .label.on {
+  color: #eee;
+}
+
+/*# sourceMappingURL=style.css.map */
